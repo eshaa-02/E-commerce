@@ -2300,3 +2300,51 @@ footer {
     flex-basis: 38px !important;
   }
 }
+
+/* ============================================================
+   MOBILE PRODUCT CARD FIX — ADD TO CART OVERLAY
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+  /* Product card ko button ke liye extra space do */
+  .product-info {
+    padding-bottom: 78px;
+  }
+
+  /* Add to cart button */
+  .quick-add {
+    position: absolute;
+    right: 12px;
+    bottom: 14px;
+    left: auto;
+
+    width: auto;
+    height: auto;
+
+    display: block;
+    z-index: 5;
+  }
+
+  .quick-add button {
+    width: auto !important;
+    height: 48px !important;
+
+    padding: 0 18px !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    white-space: nowrap;
+
+    border-radius: var(--radius-pill);
+  }
+
+  /* Price ko button se overlap hone se bachao */
+  .product-price-row {
+    margin-bottom: 8px;
+    padding-right: 0;
+  }
+
+}
