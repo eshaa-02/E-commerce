@@ -2348,3 +2348,148 @@ footer {
   }
 
 }
+
+/* =========================================
+   MOBILE NAVIGATION FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* Desktop navigation hide */
+  .desktop-nav {
+    display: none !important;
+  }
+
+  /* Hamburger show */
+  .hamburger {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    cursor: pointer;
+  }
+
+  /* Mobile overlay */
+  .overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.3s ease;
+
+    z-index: 999;
+  }
+
+  .overlay.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Mobile menu panel */
+  .mobile-panel {
+    position: fixed;
+
+    top: 0;
+    right: -100%;
+
+    width: min(320px, 85vw);
+    height: 100vh;
+
+    background: var(--bg-primary);
+
+    padding: 25px 22px;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+
+    transition: right 0.35s ease;
+
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Open menu */
+  .mobile-panel.open {
+    right: 0 !important;
+  }
+
+  /* Mobile menu header */
+  .mobile-panel-head {
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid var(--border-color);
+
+    margin-bottom: 20px;
+  }
+
+  /* IMPORTANT — Links vertical */
+  .mobile-nav-links {
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: stretch !important;
+
+    width: 100%;
+
+    gap: 8px;
+  }
+
+  /* Individual links */
+  .mobile-nav-links a {
+    display: block !important;
+
+    width: 100%;
+
+    padding: 14px 15px;
+
+    color: var(--text-primary);
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    border-radius: 10px;
+
+    transition: 0.2s ease;
+  }
+
+  .mobile-nav-links a:hover {
+    background: var(--bg-secondary);
+
+    color: var(--accent-primary);
+  }
+
+  /* Bottom buttons */
+  .mobile-actions {
+    margin-top: auto;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    gap: 12px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border-color);
+  }
+
+  .mobile-actions a {
+    width: 100% !important;
+
+    display: flex !important;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+}
