@@ -1,9 +1,3 @@
-/* ============================================================
-   NOVA MART — Shared UI Logic
-   Icon library, navigation, search, toasts, and reusable
-   product/category card renderers used across every page.
-   ============================================================ */
-
 /* ---------- Icon library (feather-style line icons) ---------- */
 const ICONS = {
   search: '<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>',
@@ -291,23 +285,61 @@ function initSearchOverlay() {
 function initMobileMenu() {
   const btn = document.querySelector(".hamburger");
   const panel = document.querySelector(".mobile-panel");
-  const overlay = document.querySelector(".overlay");
+
   if (!btn || !panel) return;
-  function toggle() {
-    const open = panel.classList.toggle("open");
-    btn.classList.toggle("active", open);
-    overlay.classList.toggle("show", open);
-    document.body.style.overflow = open ? "hidden" : "";
+
+  // Automatically create overlay if it doesn't exist
+  let overlay = document.querySelector(".overlay");
+
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.className = "overlay";
+    document.body.appendChild(overlay);
   }
-  function close() {
+
+  function openMenu() {
+    panel.classList.add("open");
+    btn.classList.add("active");
+    overlay.classList.add("show");
+
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
     panel.classList.remove("open");
     btn.classList.remove("active");
     overlay.classList.remove("show");
+
     document.body.style.overflow = "";
   }
-  btn.addEventListener("click", toggle);
-  overlay.addEventListener("click", close);
-  panel.querySelectorAll("a").forEach(a => a.addEventListener("click", close));
+
+  function toggleMenu() {
+    const isOpen = panel.classList.contains("open");
+
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+
+  // Hamburger click
+  btn.addEventListener("click", toggleMenu);
+
+  // Click outside menu
+  overlay.addEventListener("click", closeMenu);
+
+  // Close menu when a link is clicked
+  panel.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  // Close with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeMenu();
+    }
+  });
 }
 
 function initNavScrollShadow() {
