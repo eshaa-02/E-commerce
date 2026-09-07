@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product | Nova Mart</title>
+<meta name="description" content="Product details at Nova Mart.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23C58B5A%22/><text x=%2212%22 y=%2217%22 font-size=%2214%22 fill=%22white%22 text-anchor=%22middle%22 font-family=%22Georgia%22>N</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-theme="light">
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Nova<span>Mart</span></a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="index.html#categories">Categories</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" data-search-open aria-label="Search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <a class="icon-btn" href="wishlist.html" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-6.7-4.35-9.3-8.2C1 10.5 1.5 7 4.5 5.5c2.2-1.1 4.6-.3 5.9 1.5.4.5.7 1 .7 1s.3-.5.7-1c1.3-1.8 3.7-2.6 5.9-1.5 3 1.5 3.5 5 1.8 7.3C18.7 16.65 12 21 12 21Z"/></svg>
+          <span class="count-badge" data-wish-count style="display:none;">0</span>
+        </a>
+        <a class="icon-btn" href="cart.html" aria-label="Cart">
+          <svg viewBox="0 0 24 24"><path d="M6 8h12l-1 13H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="count-badge" data-cart-count style="display:none;">0</span>
+        </a>
+        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme">
+          <span class="knob"><svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg></span>
+        </button>
+        <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="overlay"></div>
+
+  <div class="mobile-panel">
+    <div class="mobile-panel-head">
+      <a href="index.html" class="logo">Nova<span>Mart</span></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="index.html#categories">Categories</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="mobile-actions">
+      <a href="wishlist.html" class="btn btn-outline btn-full">Wishlist</a>
+      <a href="cart.html" class="btn btn-primary btn-full">Cart</a>
+    </div>
+  </div>
+
+  <div class="search-overlay">
+    <button class="icon-btn search-close" data-search-close aria-label="Close search">
+      <svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+    <div class="search-box">
+      <div class="search-box-input">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search products..." autocomplete="off" aria-label="Search products">
+      </div>
+      <p class="search-hint">Try "headphones", "boots", or "candle"</p>
+      <div class="search-results"></div>
+    </div>
+  </div>
+  <main>
+    <div class="container page-header" style="padding-bottom:0;">
+      <div class="breadcrumb" id="breadcrumb">
+        <a href="index.html">Home</a><span class="sep">/</span>
+        <a href="shop.html">Shop</a><span class="sep">/</span>
+        <span class="current" id="breadcrumbProduct">Product</span>
+      </div>
+    </div>
+
+    <div class="container section-tight" style="padding-top:12px;" id="productRoot">
+      <!-- Filled dynamically by JS -->
+    </div>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>You may also like</h2>
+            <p>More from the same department.</p>
+          </div>
+        </div>
+        <div class="product-grid" id="relatedGrid"></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Nova<span>Mart</span></a>
+          <p>Considered everyday essentials, chosen for how they age. Designed with restraint, delivered with care.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+            <a href="#" aria-label="Contact"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.5 7.1"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><line x1="7.5" y1="10" x2="7.5" y2="17"/><circle cx="7.5" cy="7" r="1.2"/><path d="M11 17v-4.5a2 2 0 0 1 4 0V17M11 17v-7"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All products</a></li>
+            <li><a href="shop.html?category=Electronics">Electronics</a></li>
+            <li><a href="shop.html?category=Fashion">Fashion</a></li>
+            <li><a href="shop.html?category=Shoes">Shoes</a></li>
+            <li><a href="shop.html?category=Beauty">Beauty</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="cart.html">Your cart</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-newsletter">
+          <h4>Stay in the loop</h4>
+          <p style="font-size:.85rem;color:var(--text-secondary);">Early access to new arrivals and seasonal offers.</p>
+          <form data-newsletter>
+            <input type="email" placeholder="Your email" required aria-label="Email address">
+            <button class="btn btn-primary btn-sm" type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Nova Mart. All rights reserved.</span>
+        <div class="payment-icons">
+          <span>VISA</span><span>MC</span><span>AMEX</span><span>COD</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="js/products.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/wishlist.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const id = Number(params.get("id"));
+      const product = PRODUCTS.find(p => p.id === id);
+      const root = document.getElementById("productRoot");
+
+      if (!product) {
+        root.innerHTML = `
+          <div class="empty-state">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <h3>Product not found</h3>
+            <p>This item may have been removed. Browse the shop to find something else.</p>
+            <div style="margin-top:20px;"><a href="shop.html" class="btn btn-primary">Back to shop</a></div>
+          </div>`;
+        document.getElementById("relatedGrid").parentElement.parentElement.style.display = "none";
+        return;
+      }
+
+      document.title = product.name + " | Nova Mart";
+      document.getElementById("breadcrumbProduct").textContent = product.name;
+
+      const discount = product.originalPrice ? Math.round(100 - (product.price / product.originalPrice) * 100) : 0;
+      let qty = 1;
+
+      function pdStarsSvg() {
+        let s = "";
+        for (let i = 1; i <= 5; i++) {
+          s += `<svg viewBox="0 0 24 24" style="fill:${i <= Math.round(product.rating) ? "var(--accent-primary)" : "var(--border)"};">${ICONS.star}</svg>`;
+        }
+        return s;
+      }
+
+      root.innerHTML = `
+        <div class="pd-layout">
+          <div class="pd-media">${icon(product.icon)}</div>
+          <div>
+            <div class="pd-cat">${product.category}</div>
+            <h1 class="pd-title">${product.name}</h1>
+            <div class="pd-meta">
+              <div class="pd-stars">${pdStarsSvg()}</div>
+              <span style="color:var(--text-secondary);font-size:.9rem;">${product.rating} (${product.reviews} reviews)</span>
+            </div>
+            <div class="pd-price-row">
+              <span class="price-now">${formatPrice(product.price)}</span>
+              ${product.originalPrice ? `<span class="price-old">${formatPrice(product.originalPrice)}</span><span class="pd-discount">${discount}% off</span>` : ""}
+            </div>
+            <p class="pd-desc">${product.shortDesc}</p>
+            <div class="pd-stock ${product.stock <= 0 ? "out" : ""}">
+              <span class="dot"></span> ${product.stock > 0 ? `In stock — ${product.stock} available` : "Out of stock"}
+            </div>
+            <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;">
+              <div class="qty-selector">
+                <button id="qtyMinus" aria-label="Decrease quantity">${icon("minus")}</button>
+                <span id="qtyValue">1</span>
+                <button id="qtyPlus" aria-label="Increase quantity">${icon("plus")}</button>
+              </div>
+            </div>
+            <div class="pd-actions">
+              <button class="btn btn-primary" id="addToCartBtn" ${product.stock <= 0 ? "disabled" : ""}>${icon("bag")} ${product.stock <= 0 ? "Out of stock" : "Add to cart"}</button>
+              <button class="btn btn-outline" id="wishBtnDetail">${icon("heart")} <span id="wishBtnLabel">${Wishlist.has(product.id) ? "Wishlisted" : "Wishlist"}</span></button>
+            </div>
+            <div class="pd-info-list">
+              <div>${icon("truck")} Free shipping on orders over $75</div>
+              <div>${icon("refresh")} 30-day hassle-free returns</div>
+              <div>${icon("shield")} Secure checkout, every order encrypted</div>
+            </div>
+            <div class="pd-tabs">
+              <div class="pd-tab active" data-tab="desc">Description</div>
+              <div class="pd-tab" data-tab="reviews">Reviews (${product.reviews})</div>
+            </div>
+            <div class="pd-tab-content" id="tabContent">${product.fullDesc}</div>
+          </div>
+        </div>`;
+
+      document.getElementById("qtyMinus").addEventListener("click", () => {
+        qty = Math.max(1, qty - 1);
+        document.getElementById("qtyValue").textContent = qty;
+      });
+      document.getElementById("qtyPlus").addEventListener("click", () => {
+        qty = Math.min(product.stock || 1, qty + 1);
+        document.getElementById("qtyValue").textContent = qty;
+      });
+      document.getElementById("addToCartBtn").addEventListener("click", () => {
+        const ok = Cart.add(product.id, qty);
+        showToast(ok ? `Added ${qty} to cart` : "Item out of stock", ok ? "success" : "error");
+      });
+      document.getElementById("wishBtnDetail").addEventListener("click", () => {
+        const active = Wishlist.toggle(product.id);
+        document.getElementById("wishBtnLabel").textContent = active ? "Wishlisted" : "Wishlist";
+        showToast(active ? "Added to wishlist" : "Removed from wishlist");
+      });
+
+      const reviewSample = [
+        { name: "Amelia R.", text: "Exactly as described and feels much more premium than the price suggests. Would buy again." },
+        { name: "Daniel K.", text: "Shipping was fast and the packaging alone felt considered. Genuinely happy with this purchase." },
+        { name: "Priya S.", text: "Good quality overall, though I'd love to see a couple more color options in future." }
+      ];
+      document.querySelectorAll(".pd-tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+          document.querySelectorAll(".pd-tab").forEach(t => t.classList.remove("active"));
+          tab.classList.add("active");
+          const content = document.getElementById("tabContent");
+          if (tab.dataset.tab === "desc") {
+            content.innerHTML = product.fullDesc;
+          } else {
+            content.innerHTML = reviewSample
+              .map(r => `<p style="margin-bottom:14px;"><strong style="color:var(--text-primary);">${r.name}</strong> — ${r.text}</p>`)
+              .join("");
+          }
+        });
+      });
+
+      const related = PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
+      renderProductGrid(document.getElementById("relatedGrid"), related);
+    })();
+  </script>
+</body>
+</html>
